@@ -11,6 +11,7 @@ package dz.univjijel.informatique3l.abd.devoir.gui;
  */
 public class MainGUI extends javax.swing.JFrame {
 
+    EmprunterGUI egui;
     /**
      * Creates new form MainGUI
      */
@@ -27,47 +28,57 @@ public class MainGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuBar = new javax.swing.JMenuBar();
+        menuFichier = new javax.swing.JMenu();
+        menuItemQuitter = new javax.swing.JMenuItem();
+        menuGestLivres = new javax.swing.JMenu();
+        menuGestClients = new javax.swing.JMenu();
+        menuGestEmprunts = new javax.swing.JMenu();
+        menuItemEmprunter = new javax.swing.JMenuItem();
+        menuAide = new javax.swing.JMenu();
+        menuItemAPropos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion de la Bibliothèque");
 
-        jMenu1.setText("Fichier");
+        menuFichier.setText("Fichier");
 
-        jMenuItem1.setText("Quitter");
-        jMenu1.add(jMenuItem1);
+        menuItemQuitter.setText("Quitter");
+        menuItemQuitter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemQuitterActionPerformed(evt);
+            }
+        });
+        menuFichier.add(menuItemQuitter);
 
-        jMenuBar1.add(jMenu1);
+        menuBar.add(menuFichier);
 
-        jMenu2.setText("Gestion des Livres");
-        jMenuBar1.add(jMenu2);
+        menuGestLivres.setText("Gestion des Livres");
+        menuBar.add(menuGestLivres);
 
-        jMenu3.setText("Gestion des Clients");
-        jMenuBar1.add(jMenu3);
+        menuGestClients.setText("Gestion des Clients");
+        menuBar.add(menuGestClients);
 
-        jMenu4.setText("Gestion des Emprunts");
+        menuGestEmprunts.setText("Gestion des Emprunts");
 
-        jMenuItem2.setText("Emprunter");
-        jMenu4.add(jMenuItem2);
+        menuItemEmprunter.setText("Emprunter");
+        menuItemEmprunter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEmprunterActionPerformed(evt);
+            }
+        });
+        menuGestEmprunts.add(menuItemEmprunter);
 
-        jMenuBar1.add(jMenu4);
+        menuBar.add(menuGestEmprunts);
 
-        jMenu5.setText("Aide");
+        menuAide.setText("Aide");
 
-        jMenuItem3.setText("A Propos");
-        jMenu5.add(jMenuItem3);
+        menuItemAPropos.setText("A Propos");
+        menuAide.add(menuItemAPropos);
 
-        jMenuBar1.add(jMenu5);
+        menuBar.add(menuAide);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,17 +94,30 @@ public class MainGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void menuItemQuitterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemQuitterActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menuItemQuitterActionPerformed
+
+    private void menuItemEmprunterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEmprunterActionPerformed
+        if(egui == null){
+            egui = new EmprunterGUI();
+            egui.setVisible(true);
+        }else{
+            egui.setVisible(true);
+        }
+    }//GEN-LAST:event_menuItemEmprunterActionPerformed
+
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenu menuAide;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuFichier;
+    private javax.swing.JMenu menuGestClients;
+    private javax.swing.JMenu menuGestEmprunts;
+    private javax.swing.JMenu menuGestLivres;
+    private javax.swing.JMenuItem menuItemAPropos;
+    private javax.swing.JMenuItem menuItemEmprunter;
+    private javax.swing.JMenuItem menuItemQuitter;
     // End of variables declaration//GEN-END:variables
 }

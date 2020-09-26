@@ -5,6 +5,13 @@
  */
 package dz.univjijel.informatique3l.abd.devoir.gui;
 
+import dz.univjijel.informatique3l.abd.devoir.exemple.DonneesExemples;
+import dz.univjijel.informatique3l.abd.devoir.model.Client;
+import dz.univjijel.informatique3l.abd.devoir.model.Emprunt;
+import dz.univjijel.informatique3l.abd.devoir.model.Livre;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Tarek Boutefara <t_boutefara@esi.dz>
@@ -27,66 +34,78 @@ public class EmprunterGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lblCodeClient = new javax.swing.JLabel();
+        txtCodeClient = new javax.swing.JTextField();
+        lblCodeLivre = new javax.swing.JLabel();
+        txtISBN = new javax.swing.JTextField();
+        txtNumSeq = new javax.swing.JTextField();
+        lblNom = new javax.swing.JLabel();
+        txtNom = new javax.swing.JTextField();
+        lblPrenom = new javax.swing.JLabel();
+        txtPrenom = new javax.swing.JTextField();
+        lblTitre = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        txtAreaTitre = new javax.swing.JTextArea();
+        lblAuteur = new javax.swing.JLabel();
+        lblEdition = new javax.swing.JLabel();
+        lblAnnee = new javax.swing.JLabel();
+        txtAuteur = new javax.swing.JTextField();
+        txtEdition = new javax.swing.JTextField();
+        txtAnnee = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        tblEmpruntsEnCours = new javax.swing.JTable();
+        btnConfirmer = new javax.swing.JButton();
+        btnFermer = new javax.swing.JButton();
+        lblEmpruntsEnCours = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Emprunter");
         setResizable(false);
 
-        jLabel1.setText("Code Client :");
+        lblCodeClient.setText("Code Client :");
 
-        jLabel2.setText("Code Exemplaire :");
+        txtCodeClient.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCodeClientKeyReleased(evt);
+            }
+        });
 
-        jLabel3.setText("Nom :");
+        lblCodeLivre.setText("Code Exemplaire :");
 
-        jTextField4.setEditable(false);
+        txtISBN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtISBNKeyReleased(evt);
+            }
+        });
 
-        jLabel4.setText("Prénom :");
+        lblNom.setText("Nom :");
 
-        jTextField5.setEditable(false);
+        txtNom.setEditable(false);
 
-        jLabel5.setText("Titre :");
+        lblPrenom.setText("Prénom :");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtPrenom.setEditable(false);
 
-        jLabel6.setText("Auteur :");
+        lblTitre.setText("Titre :");
 
-        jLabel7.setText("Edition :");
+        txtAreaTitre.setEditable(false);
+        txtAreaTitre.setColumns(20);
+        txtAreaTitre.setRows(5);
+        jScrollPane1.setViewportView(txtAreaTitre);
 
-        jLabel8.setText("Année de Publication :");
+        lblAuteur.setText("Auteur :");
 
-        jTextField6.setEditable(false);
+        lblEdition.setText("Edition :");
 
-        jTextField7.setEditable(false);
+        lblAnnee.setText("Année de Publication :");
 
-        jTextField8.setEditable(false);
+        txtAuteur.setEditable(false);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        txtEdition.setEditable(false);
+
+        txtAnnee.setEditable(false);
+
+        tblEmpruntsEnCours.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -97,13 +116,18 @@ public class EmprunterGUI extends javax.swing.JFrame {
                 "ISBN/N°", "Titre", "Date Emprunt"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblEmpruntsEnCours);
 
-        jButton1.setText("Confirmer Emprunt");
+        btnConfirmer.setText("Confirmer Emprunt");
 
-        jButton2.setText("Fermer");
+        btnFermer.setText("Fermer");
+        btnFermer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFermerActionPerformed(evt);
+            }
+        });
 
-        jLabel9.setText("Emprunt en cours :");
+        lblEmpruntsEnCours.setText("Emprunts en cours :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -114,47 +138,47 @@ public class EmprunterGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
+                            .addComponent(lblAnnee)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(lblCodeClient)
+                                    .addComponent(lblNom, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblPrenom, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                    .addComponent(jTextField4)
-                                    .addComponent(jTextField1))
+                                    .addComponent(txtPrenom, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(txtNom)
+                                    .addComponent(txtCodeClient))
                                 .addGap(60, 60, 60)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5)))
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                                    .addComponent(lblCodeLivre)
+                                    .addComponent(lblTitre)))
+                            .addComponent(lblAuteur)
+                            .addComponent(lblEdition))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3))
+                                .addComponent(txtNumSeq))
                             .addComponent(jScrollPane1)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8))
+                            .addComponent(txtAuteur)
+                            .addComponent(txtEdition)
+                            .addComponent(txtAnnee))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 3, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
+                            .addComponent(lblEmpruntsEnCours)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnConfirmer)
                 .addGap(281, 281, 281))
             .addGroup(layout.createSequentialGroup()
                 .addGap(323, 323, 323)
-                .addComponent(jButton2)
+                .addComponent(btnFermer)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -162,74 +186,139 @@ public class EmprunterGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCodeClient)
+                    .addComponent(txtCodeClient, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodeLivre)
+                    .addComponent(txtISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumSeq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
+                            .addComponent(lblNom)
+                            .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitre))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblPrenom)
+                            .addComponent(txtPrenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAuteur)
+                    .addComponent(txtAuteur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblEdition)
+                    .addComponent(txtEdition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAnnee)
+                    .addComponent(txtAnnee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
-                .addComponent(jButton1)
+                .addComponent(btnConfirmer)
                 .addGap(22, 22, 22)
-                .addComponent(jLabel9)
+                .addComponent(lblEmpruntsEnCours)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnFermer)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnFermerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFermerActionPerformed
+       dispose();
+    }//GEN-LAST:event_btnFermerActionPerformed
+
+    private void txtCodeClientKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodeClientKeyReleased
+        if(!txtCodeClient.getText().equals(""))
+           detecterClient();
+    }//GEN-LAST:event_txtCodeClientKeyReleased
+
+    private void txtISBNKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtISBNKeyReleased
+        if(!txtISBN.getText().equals(""))
+            detecterLivre();
+    }//GEN-LAST:event_txtISBNKeyReleased
+
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton btnConfirmer;
+    private javax.swing.JButton btnFermer;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JLabel lblAnnee;
+    private javax.swing.JLabel lblAuteur;
+    private javax.swing.JLabel lblCodeClient;
+    private javax.swing.JLabel lblCodeLivre;
+    private javax.swing.JLabel lblEdition;
+    private javax.swing.JLabel lblEmpruntsEnCours;
+    private javax.swing.JLabel lblNom;
+    private javax.swing.JLabel lblPrenom;
+    private javax.swing.JLabel lblTitre;
+    private javax.swing.JTable tblEmpruntsEnCours;
+    private javax.swing.JTextField txtAnnee;
+    private javax.swing.JTextArea txtAreaTitre;
+    private javax.swing.JTextField txtAuteur;
+    private javax.swing.JTextField txtCodeClient;
+    private javax.swing.JTextField txtEdition;
+    private javax.swing.JTextField txtISBN;
+    private javax.swing.JTextField txtNom;
+    private javax.swing.JTextField txtNumSeq;
+    private javax.swing.JTextField txtPrenom;
     // End of variables declaration//GEN-END:variables
+
+    private void detecterLivre() {
+        String ISBN = txtISBN.getText();
+        List<Livre> livres = DonneesExemples.getLivres();
+        
+        for (int i = 0; i < livres.size(); i++) {
+            Livre l = livres.get(i);
+            if(l.getISBN().equals(ISBN)){
+                txtAreaTitre.setText(l.getTitre());
+                txtAuteur.setText(l.getTitre());
+                txtEdition.setText(l.getEdition());
+                txtAnnee.setText(l.getAnneePublication() + "");
+            }
+        }
+    }
+    
+    private void detecterClient() throws NumberFormatException {
+        while(((DefaultTableModel)tblEmpruntsEnCours.getModel()).getRowCount() > 0)
+            ((DefaultTableModel)tblEmpruntsEnCours.getModel()).removeRow(0);
+        txtNom.setText("");
+        txtPrenom.setText("");
+        
+        int codeClient = Integer.parseInt(txtCodeClient.getText());
+        List<Client> clients = DonneesExemples.getClients();
+        for (int i = 0; i < clients.size(); i++) {
+            Client c = clients.get(i);
+            if(c.getNum() == codeClient){
+                txtNom.setText(c.getNom());
+                txtPrenom.setText(c.getPrenom());
+                
+                List<Emprunt> emprunts = DonneesExemples.getEmprunts();
+                for (int j = 0; j < emprunts.size(); j++) {
+                    Emprunt e = emprunts.get(j);
+                    if(e.getNum() == codeClient && e.getRetour() == null){
+                        
+                        List<Livre> livres = DonneesExemples.getLivres();
+                        for (int k = 0; k < livres.size(); k++) {
+                            Livre l = livres.get(k);
+                            
+                            if(l.getISBN().equals(e.getISBN())){
+                                ((DefaultTableModel)tblEmpruntsEnCours.getModel()).addRow(new String[]{l.getISBN()+"/"+e.getnSequentiel(), l.getTitre(), e.getEmprunt().toString()});
+                            }
+                            
+                        }
+                        
+                        
+                    }
+                }
+            }
+        }
+    }
 }

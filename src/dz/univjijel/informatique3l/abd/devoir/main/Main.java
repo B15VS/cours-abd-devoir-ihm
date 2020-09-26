@@ -5,6 +5,8 @@
  */
 package dz.univjijel.informatique3l.abd.devoir.main;
 
+import dz.univjijel.informatique3l.abd.devoir.gui.MainGUI;
+
 /**
  *
  * @author Tarek Boutefara <t_boutefara@esi.dz>
@@ -15,7 +17,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        (new MainGUI()).setVisible(true);
     }
     
 }
