@@ -26,6 +26,14 @@ public class Emprunt {
         this.num = num;
     }
 
+    public Emprunt(String ISBN, int nSequentiel, int num, Date emprunt, Date retour) {
+        this.ISBN = ISBN;
+        this.nSequentiel = nSequentiel;
+        this.num = num;
+        this.emprunt = emprunt;
+        this.retour = retour;
+    }
+
     public String getISBN() {
         return ISBN;
     }
