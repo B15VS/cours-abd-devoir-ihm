@@ -6,12 +6,17 @@
 package dz.univjijel.informatique3l.abd.devoir.gui;
 
 /**
- *
+ * La fenêtre principale.
  * @author Tarek Boutefara <t_boutefara@esi.dz>
  */
 public class MainGUI extends javax.swing.JFrame {
 
+    /** 
+     * La fenêtre de gestion des emprunts.
+     * C'est le seul composant fonctionnel sur cette version.
+     */
     EmprunterGUI egui;
+    
     /**
      * Creates new form MainGUI
      */

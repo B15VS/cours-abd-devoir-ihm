@@ -13,7 +13,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * La fenêtre pour créer un emprunt.
  * @author Tarek Boutefara <t_boutefara@esi.dz>
  */
 public class EmprunterGUI extends javax.swing.JFrame {
@@ -271,6 +271,10 @@ public class EmprunterGUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtPrenom;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Permet de détecter le livre et de remplir les champs
+     * des informations automatiquement.
+     */
     private void detecterLivre() {
         String ISBN = txtISBN.getText();
         List<Livre> livres = DonneesExemples.getLivres();
@@ -286,6 +290,13 @@ public class EmprunterGUI extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Permet de détecter le client et de remplir les champs
+     * des informations automatiquement.
+     * Cette méthode n'est pas optimisée vu la taille des données qui ne 
+     * nécessite pas une optimisation particulière.
+     * @throws NumberFormatException 
+     */
     private void detecterClient() throws NumberFormatException {
         while(((DefaultTableModel)tblEmpruntsEnCours.getModel()).getRowCount() > 0)
             ((DefaultTableModel)tblEmpruntsEnCours.getModel()).removeRow(0);
@@ -313,9 +324,7 @@ public class EmprunterGUI extends javax.swing.JFrame {
                                 ((DefaultTableModel)tblEmpruntsEnCours.getModel()).addRow(new String[]{l.getISBN()+"/"+e.getnSequentiel(), l.getTitre(), e.getEmprunt().toString()});
                             }
                             
-                        }
-                        
-                        
+                        }  
                     }
                 }
             }

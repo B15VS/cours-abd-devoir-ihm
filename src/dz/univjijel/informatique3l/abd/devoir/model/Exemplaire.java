@@ -6,7 +6,7 @@
 package dz.univjijel.informatique3l.abd.devoir.model;
 
 /**
- *
+ * Implémentation de l'entité Exemplaire.
  * @author Tarek Boutefara <t_boutefara@esi.dz>
  */
 public class Exemplaire {

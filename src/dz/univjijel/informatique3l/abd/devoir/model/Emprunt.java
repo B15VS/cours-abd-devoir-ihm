@@ -8,7 +8,7 @@ package dz.univjijel.informatique3l.abd.devoir.model;
 import java.util.Date;
 
 /**
- *
+ * Implémentation de l'association Emprunt.
  * @author Tarek Boutefara <t_boutefara@esi.dz>
  */
 public class Emprunt {

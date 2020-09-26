@@ -14,7 +14,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
+ * Cette classe crée des données exemple.
+ * Elle joue le role d'une base de données.
  * @author Tarek Boutefara <t_boutefara@esi.dz>
  */
 public class DonneesExemples {
